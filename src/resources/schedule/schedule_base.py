@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse, abort
 from src import db
-from src.models.model_schedule import ScheduleModel
+from src.models.schedule.model_schedule import ScheduleModel
 
 
 class ScheduleBase(Resource):

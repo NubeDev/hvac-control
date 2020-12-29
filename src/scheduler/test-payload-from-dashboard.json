@@ -1,0 +1,97 @@
+{
+  "weekly": {
+    "a75b2b4d-8872-49cd-abd2-0fc0fefa315d": {
+      "name": "CHAPEL",
+      "days": [
+        "saturday"
+      ],
+      "start": "21:00",
+      "end": "00:00",
+      "value": 0,
+      "color": ""
+    },
+    "75dda166-b05c-45a6-9666-1d6d6dcb9c7c": {
+      "name": "HALL",
+      "days": [
+        "saturday"
+      ],
+      "start": "21:00",
+      "end": "00:00",
+      "value": 0,
+      "color": "#4a90e2"
+    },
+    "675a339f-a80b-4b9a-9f32-1ad2162a2018": {
+      "name": "HALL",
+      "days": [
+        "sunday"
+      ],
+      "start": "01:30",
+      "end": "04:00",
+      "value": 0,
+      "color": "#7ed321"
+    },
+    "2d305388-60a2-4e2d-a09d-dd9b6756ed13": {
+      "name": "CHAPEL",
+      "days": [
+        "sunday"
+      ],
+      "start": "01:30",
+      "end": "04:00",
+      "value": 0,
+      "color": "#4a90e2"
+    }
+  },
+  "events": {
+    "05c705b1-20f0-4d46-92c8-7197898a871d": {
+      "name": "HALL",
+      "dates": [
+        {
+          "start": "2020-12-22T23:58",
+          "end": "2020-12-23T01:58"
+        }
+      ],
+      "inputDates": [
+        {
+          "start": "2020-12-23T10:58",
+          "end": "2020-12-23T11:58"
+        }
+      ],
+      "value": 0,
+      "color": ""
+    },
+    "91f7ddbb-d8b1-4cc2-948e-d607823367b8": {
+      "name": "CHAPEL",
+      "dates": [
+        {
+          "start": "2020-12-22T23:58",
+          "end": "2020-12-23T01:58"
+        }
+      ],
+      "inputDates": [
+        {
+          "start": "2020-12-23T10:58",
+          "end": "2020-12-23T11:58"
+        }
+      ],
+      "value": 0,
+      "color": ""
+    },
+    "59180235-726e-436e-8b51-ce362adc3282": {
+      "name": "event_test",
+      "dates": [
+        {
+          "start": "2020-12-30T00:49",
+          "end": "2020-12-30T05:49"
+        }
+      ],
+      "inputDates": [
+        {
+          "start": "2020-12-30T06:49",
+          "end": "2020-12-30T07:49"
+        }
+      ],
+      "value": 0,
+      "color": ""
+    }
+  }
+}

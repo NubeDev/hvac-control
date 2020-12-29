@@ -1,6 +1,6 @@
 from flask_restful import marshal_with, abort, reqparse
-from src.models.model_schedule import ScheduleModel
-from src.resources.mod_fields import schedule_fields
+from src.models.schedule.model_schedule import ScheduleModel
+from src.resources.schedule.mod_fields import schedule_fields
 from src.resources.schedule.schedule_base import ScheduleBase
 
 

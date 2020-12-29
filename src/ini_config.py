@@ -14,13 +14,6 @@ config.read(filename)
 settings__enable_mqtt = config.getboolean('settings', 'enable_mqtt', fallback=False)
 settings__enable_serial_driver = config.getboolean('settings', 'enable_serial_driver', fallback=True)
 
-serial__name = config.get('serial', 'name', fallback='lora-raw-network')
-serial__port = config.get('serial', 'port', fallback='/dev/ttyUSB3')
-serial__baud_rate = config.getint('serial', 'baud_rate', fallback=38400)
-serial__stop_bits = config.getint('serial', 'stop_bits', fallback=1)
-serial__parity = config.get('serial', 'parity', fallback='N')
-serial__byte_size = config.getint('serial', 'byte_size', fallback=8)
-serial__timeout = config.getint('serial', 'timeout', fallback=5)
 
 mqtt__host = config.get('mqtt', 'host', fallback='0.0.0.0')
 mqtt__port = config.getint('mqtt', 'port', fallback=1883)
