@@ -1,0 +1,11 @@
+pyserial
+paho-mqtt
+Flask
+Flask-RESTful
+Flask-cors
+requests
+netifaces
+Flask-SQLAlchemy
+SQLAlchemy
+gunicorn
+gevent

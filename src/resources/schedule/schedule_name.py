@@ -1,48 +1,41 @@
 from flask_restful import marshal_with, abort, reqparse
+from src.models.model_schedule import ScheduleModel
+from src.resources.mod_fields import schedule_fields
+from src.resources.schedule.schedule_base import ScheduleBase
 
-from src.models.model_sensor import SensorModel
-from src.resources.mod_fields import sensor_fields
-from src.resources.sensor.sensor_base import SensorBase
 
-
-class SensorName(SensorBase):
+class ScheduleName(ScheduleBase):
     parser_patch = reqparse.RequestParser()
     parser_patch.add_argument('name', type=str)
-    parser_patch.add_argument('sensor_type', type=str)
-    parser_patch.add_argument('sensor_model', type=str)
-    parser_patch.add_argument('micro_edge_input_type', type=str)
-    parser_patch.add_argument('sensor_wake_up_rate', type=int)
-    parser_patch.add_argument('description', type=str)
-    parser_patch.add_argument('enable', type=bool)
-    parser_patch.add_argument('fault', type=int)
-    parser_patch.add_argument('data_round', type=int)
-    parser_patch.add_argument('data_offset', type=float)
+    parser_patch.add_argument('name', type=str, required=True)
+    parser_patch.add_argument('description', type=str, required=True)
+    parser_patch.add_argument('enable', type=bool, required=True)
 
-    @marshal_with(sensor_fields)
+    @marshal_with(schedule_fields)
     def get(self, name):
-        sensor = SensorModel.find_by_name(name)
-        if not sensor:
+        sch = ScheduleModel.find_by_name(name)
+        if not sch:
             abort(404, message='LoRa Sensor is not found')
-        return sensor
+        return sch
 
-    @marshal_with(sensor_fields)
+    @marshal_with(schedule_fields)
     def patch(self, name):
-        data = SensorName.parser_patch.parse_args()
-        sensor = SensorModel.find_by_name(name)
-        if sensor is None:
+        data = ScheduleName.parser_patch.parse_args()
+        sch = ScheduleModel.find_by_name(name)
+        if sch is None:
             abort(404, message="Does not exist {}".format(name))
         try:
             non_none_data = {}
             for key in data.keys():
                 if data[key] is not None:
                     non_none_data[key] = data[key]
-            return self.update_sensor(sensor.uuid, non_none_data)
+            return self.update_schedule(sch.uuid, non_none_data)
         except Exception as e:
             abort(500, message=str(e))
 
-    @marshal_with(sensor_fields)
+    @marshal_with(schedule_fields)
     def delete(self, name):
-        sensor = SensorModel.find_by_name(name)
-        if sensor:
-            sensor.delete_from_db()
+        sch = ScheduleModel.find_by_name(name)
+        if sch:
+            sch.delete_from_db()
         return '', 204

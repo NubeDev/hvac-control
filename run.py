@@ -1,7 +1,7 @@
 from src import app
 
 ip = '0.0.0.0'
-port = 1919
+port = 1111
 debug = True
 
 if __name__ == '__main__':
