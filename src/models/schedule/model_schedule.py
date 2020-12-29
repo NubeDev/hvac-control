@@ -11,11 +11,14 @@ class ScheduleModel(db.Model):
     name = db.Column(db.String(80), nullable=False, unique=True)
     description = db.Column(db.String(120), nullable=False)
     enable = db.Column(db.Boolean, nullable=False)
+    enable_rest = db.Column(db.Boolean, nullable=False)
+    mqtt_topic = db.Column(db.String(240), nullable=False)
+    schedule = db.Column(db.String(), nullable=False)
     created_on = db.Column(db.DateTime, server_default=db.func.now())
     updated_on = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
     def __repr__(self):
-        return "SensorModel({})".format(self.uuid)
+        return "ScheduleModel({})".format(self.uuid)
 
     @classmethod
     def get_all(cls):
@@ -40,10 +43,8 @@ class ScheduleModel(db.Model):
         SchedulerRegistry.get_instance().remove_all_schedules()
 
     def save_to_db(self):
-        # self.sensor_store = SensorStoreModel.create_new_sensor_store_model(self.uuid)
         db.session.add(self)
         db.session.commit()
-        # SchedulerRegistry.get_instance().add_schedule(self.schedule_id, self.uuid, self.name)
 
     def delete_from_db(self):
         db.session.delete(self)

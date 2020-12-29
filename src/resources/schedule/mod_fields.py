@@ -6,6 +6,10 @@ schedule_fields = {
     'name': fields.String,
     'description': fields.String,
     'enable': fields.Boolean,
+    'enable_rest': fields.Boolean,
+    'mqtt_topic': fields.String,
+    'schedule': fields.String,
+
 
 }
 

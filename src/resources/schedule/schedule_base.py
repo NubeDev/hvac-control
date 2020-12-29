@@ -8,6 +8,9 @@ class ScheduleBase(Resource):
     parser.add_argument('name', type=str, required=True)
     parser.add_argument('description', type=str, required=True)
     parser.add_argument('enable', type=bool, required=True)
+    parser.add_argument('enable_rest', type=bool, required=True)
+    parser.add_argument('mqtt_topic', type=str, required=True)
+    parser.add_argument('schedule', type=str, required=False)
 
     def add_schedule(self, uuid, data):
         try:

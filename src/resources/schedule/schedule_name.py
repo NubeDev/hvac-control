@@ -6,16 +6,18 @@ from src.resources.schedule.schedule_base import ScheduleBase
 
 class ScheduleName(ScheduleBase):
     parser_patch = reqparse.RequestParser()
-    parser_patch.add_argument('name', type=str)
-    parser_patch.add_argument('name', type=str, required=True)
-    parser_patch.add_argument('description', type=str, required=True)
-    parser_patch.add_argument('enable', type=bool, required=True)
+    parser_patch.add_argument('name', type=str, required=False)
+    parser_patch.add_argument('description', type=str, required=False)
+    parser_patch.add_argument('enable', type=bool, required=False)
+    parser_patch.add_argument('enable_rest', type=bool, required=False)
+    parser_patch.add_argument('mqtt_topic', type=str, required=False)
+    parser_patch.add_argument('schedule', type=str, required=False)
 
     @marshal_with(schedule_fields)
     def get(self, name):
         sch = ScheduleModel.find_by_name(name)
         if not sch:
-            abort(404, message='LoRa Sensor is not found')
+            abort(404, message='Schedule is not found')
         return sch
 
     @marshal_with(schedule_fields)
