@@ -1,7 +1,7 @@
 import datetime
 import time
 
-from temp_functions import current_temperature, current_humidity
+from hvac.temp_functions import current_temperature, current_humidity
 
 
 def setHVACAndSendStatus():
