@@ -1,7 +1,10 @@
-# hvac-control
+## schedule
 
+- Each schedule will subscribe to an MQTT topic from the point-server
+- There can be 1 or more schedules
+- Maybe we will add logic later to let a schedule be added over REST
 
-# schedule
+### Scope of the scheduler
 - Need to have a 7 day scheduler. Has no date its a monday to sunday scheduler  
 - An event which falls on the set date
 - Need to be able to add a recurring event with an option to trigger on next working day.
